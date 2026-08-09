@@ -53,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className={`${plusJakarta.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang="id" className={`scroll-smooth ${plusJakarta.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col pt-20">
         <Navbar />
         <main className="flex-1">{children}</main>
