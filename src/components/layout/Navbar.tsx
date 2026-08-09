@@ -1,10 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ShoppingBag, Menu } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <motion.header 
       initial={{ y: -100 }}
@@ -18,6 +21,7 @@ export function Navbar() {
           <img src="/logo.png" alt="Logo Dapure Nduk" className="h-12 w-auto" />
         </Link>
         
+        {/* Desktop Menu */}
         <nav className="hidden md:flex gap-8">
           <Link href="#menu" className="text-sm font-medium hover:text-primary transition-colors">Menu Dimsum</Link>
           <Link href="#tentang" className="text-sm font-medium hover:text-primary transition-colors">Tentang Kami</Link>
@@ -25,12 +29,33 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-
-          <button className="md:hidden p-2 hover:bg-muted rounded-full transition-colors">
-            <Menu className="w-5 h-5 text-foreground" />
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2 hover:bg-muted rounded-full transition-colors"
+          >
+            {isOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="md:hidden bg-background border-b border-border/50 overflow-hidden"
+          >
+            <nav className="flex flex-col px-4 py-4 space-y-4">
+              <Link onClick={() => setIsOpen(false)} href="#menu" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Menu Dimsum</Link>
+              <Link onClick={() => setIsOpen(false)} href="#tentang" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Tentang Kami</Link>
+              <Link onClick={() => setIsOpen(false)} href="#testimoni" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Testimoni</Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
