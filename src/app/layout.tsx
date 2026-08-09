@@ -54,7 +54,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id" className={`${plusJakarta.variable} ${playfair.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col pt-16">
+      <body className="min-h-full flex flex-col pt-20">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -16,16 +16,23 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <a 
+          href="#" 
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }} 
+          className="flex items-center gap-2"
+        >
           {/* Logo Gambar. Pastikan Anda meletakkan file logo yang Anda unggah dengan nama "logo.png" di dalam folder "public" */}
           <img src="/logo.png" alt="Logo Dapure Nduk" className="h-12 w-auto" />
-        </Link>
+        </a>
         
         {/* Desktop Menu */}
         <nav className="hidden md:flex gap-8">
-          <Link href="#menu" className="text-sm font-medium hover:text-primary transition-colors">Menu Dimsum</Link>
-          <Link href="#tentang" className="text-sm font-medium hover:text-primary transition-colors">Tentang Kami</Link>
-          <Link href="#testimoni" className="text-sm font-medium hover:text-primary transition-colors">Testimoni</Link>
+          <a href="#menu" className="text-sm font-medium hover:text-primary transition-colors">Menu Dimsum</a>
+          <a href="#tentang" className="text-sm font-medium hover:text-primary transition-colors">Tentang Kami</a>
+          <a href="#testimoni" className="text-sm font-medium hover:text-primary transition-colors">Testimoni</a>
         </nav>
 
         <div className="flex items-center gap-4">
@@ -49,9 +56,9 @@ export function Navbar() {
             className="md:hidden bg-background border-b border-border/50 overflow-hidden"
           >
             <nav className="flex flex-col px-4 py-4 space-y-4">
-              <Link onClick={() => setIsOpen(false)} href="#menu" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Menu Dimsum</Link>
-              <Link onClick={() => setIsOpen(false)} href="#tentang" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Tentang Kami</Link>
-              <Link onClick={() => setIsOpen(false)} href="#testimoni" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Testimoni</Link>
+              <a onClick={() => setIsOpen(false)} href="#menu" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Menu Dimsum</a>
+              <a onClick={() => setIsOpen(false)} href="#tentang" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Tentang Kami</a>
+              <a onClick={() => setIsOpen(false)} href="#testimoni" className="block text-base font-medium text-foreground hover:text-primary transition-colors">Testimoni</a>
             </nav>
           </motion.div>
         )}

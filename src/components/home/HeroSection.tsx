@@ -11,7 +11,7 @@ export function HeroSection() {
         <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-secondary/10 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 z-10 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 z-10 grid lg:grid-cols-2 gap-12 items-center py-12 lg:py-0">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -31,9 +31,6 @@ export function HeroSection() {
             Hangat, Lembut, <br />
             <span className="text-primary relative inline-block">
               Menggugah Selera.
-              <svg className="absolute w-full h-4 -bottom-1 left-0 text-secondary opacity-70" viewBox="0 0 100 10" preserveAspectRatio="none">
-                <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" strokeWidth="3" />
-              </svg>
             </span>
           </h1>
 
@@ -48,7 +45,7 @@ export function HeroSection() {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="flex flex-wrap gap-4 mt-4"
           >
-            <a href="#menu" className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/30 flex items-center gap-2">
+            <a href="#menu" className="px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary/5 transition-all shadow-sm flex items-center gap-2">
               Lihat Menu Dimsum
             </a>
             <a href="https://wa.me/6285283888916" target="_blank" rel="noreferrer" className="px-8 py-4 bg-secondary text-secondary-foreground rounded-full font-semibold hover:bg-secondary/90 transition-all shadow-lg hover:shadow-secondary/30">
@@ -63,9 +60,7 @@ export function HeroSection() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative h-[400px] md:h-[600px] w-full"
         >
-          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-[2rem] md:rounded-[4rem] overflow-hidden shadow-2xl group">
-            <div className="absolute inset-0 border-8 border-background/50 rounded-[2rem] md:rounded-[4rem] z-10 m-4 pointer-events-none" />
-
+          <div className="absolute inset-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl group border-4 border-white/50">
             <img
               src="/gambar-dimsum.png"
               alt="Dimsum dan Mentai Premium Dapure Nduk"
