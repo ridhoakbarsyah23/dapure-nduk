@@ -52,12 +52,48 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FoodEstablishment",
+    "name": "Dapure Nduk",
+    "image": "https://dapure-nduk.vercel.app/gambar-dimsum.png",
+    "description": "Sajian Dimsum dan Mentai Rice premium buatan rumah. 100% tanpa bahan pengawet dan halal.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Citra Raya Graha Indira Jl. Kana 1 Blok K 12 Nomer 15",
+      "addressLocality": "Panongan",
+      "addressRegion": "Banten",
+      "addressCountry": "ID"
+    },
+    "telephone": "+6285283888916",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "10:00",
+        "closes": "18:00"
+      }
+    ],
+    "url": "https://dapure-nduk.vercel.app/"
+  };
+
   return (
     <html lang="id" className={`scroll-smooth scroll-pt-20 ${plusJakarta.variable} ${playfair.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col pt-20">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </body>
     </html>
   );
